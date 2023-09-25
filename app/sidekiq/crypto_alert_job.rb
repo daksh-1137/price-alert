@@ -1,9 +1,11 @@
 class CryptoAlertJob
   include Sidekiq::Job
-
+include CryptoPriceAlert
   def perform(*args)
     # Do something
-    puts "I am Daksh"
+    current_price("bitcoin")
+
+    
   end
   Sidekiq::Cron::Job.create(cron: '* * * * *', class: 'CryptoAlertJob') # execute at every 5 minutes
 end
