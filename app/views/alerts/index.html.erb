@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Alerts</h1>
+
+<div id="alerts">
+<table class="table">
+<thead class="thead-dark">
+<tr>
+  <th scope="col">#</th>
+  <th scope="col">Cryptocurrency</th>
+  <th scope="col">Target price</th>
+  <th scope="col">Status</th>
+  <th scope="col">View Alert</th>
+</tr>
+</thead>
+<tbody>
+<div class="apple_pagination">
+  <%= will_paginate @alerts, :container => false %>
+</div>
+  <% @alerts.each do |alert| %>
+    <tr>
+    <%= render alert %>
+    
+    
+  <% end %>
+  </tbody>
+  
+  
+  </table
+</div>
+
+<%= link_to "New alert", new_alert_path %>
